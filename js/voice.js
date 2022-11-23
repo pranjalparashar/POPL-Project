@@ -44,8 +44,7 @@ recognition.onresult = function (event) {
     }
   }
 
-  //call function according to command (first word(s) spoken)
-  if (splitWords[0] === "include") {
+   if (splitWords[0] === "include") {
     includeLibrary();
   }
   if (splitWords[0] == "function") {
@@ -57,8 +56,24 @@ recognition.onresult = function (event) {
   if (splitWords[0] === "print") {
     printf();
   }
+  if (splitWords[0] === "scan") {
+    scanf();
+  }
   if (splitWords[0] === "if") {
     ifStatement();
+  }
+  if (splitWords[0] === "while") {
+    whileLoop();
+  }
+  if (splitWords[0] === "do") {
+    doLoop();
+    doLoopCalled = 1;
+  }
+  if (splitWords[0] === "for") {
+    forLoop();
+  }
+  if (splitWords[0] == "out") {
+    braceOut();
   }
   if (splitWords[0] === "else" && splitWords[1] !== "if") {
     elseStatement();
@@ -67,9 +82,10 @@ recognition.onresult = function (event) {
     elseIfStatement();
   }
   if(splitWords[0]==='call'){
-      call_function();
+      callFunctions();
   }
 
+  //reset transcript and word array for next line
   transcript = "";
   splitWords = [];
 };
