@@ -1,7 +1,11 @@
+
+
 function ifStatement() {
-	var statement = 'if (';
-	statement += getCondition(1);  
-	statement += ') {\n\n'; 
+	var statement = 'if ('; // statement variable stores entire statement to be added to the program textarea
+	statement += getCondition(1);  //get condition for if statement
+	statement += ') {\n\n'; //add closing paranthesis and braces
+
+	//add statement to textarea
 	programTextArea.executeEdits("", [{
 		range: {
 			startLineNumber: programTextArea.getPosition().lineNumber,
@@ -13,8 +17,9 @@ function ifStatement() {
 		forceMoveMarkers: true
 	}]);
 
-	autoIndent() 
+	autoIndent() //implement indentation for closing brace of if statement
 
+	// add closing brace to textarea
 	programTextArea.executeEdits("", [{
 		range: {
 			startLineNumber: programTextArea.getPosition().lineNumber,
@@ -26,14 +31,21 @@ function ifStatement() {
 		forceMoveMarkers: true
 	}]);
 
+	//reset cursor to between braces
 	programTextArea.setPosition({lineNumber: programTextArea.getPosition().lineNumber - 1, column: programTextArea.getPosition().columnNumber + 2})
-	indent++; 
-	autoIndent();
-	programTextArea.focus();
+
+	indent++; //new braces added, increment indent
+	autoIndent(); //call function to implement auto indent
+
+	programTextArea.focus(); //focus on textarea
 
 }
+
+//Else statement
 function elseStatement(){
-	var statement = 'else {\n\n'; 
+	var statement = 'else {\n\n'; //statement variable stores entire statement to be added to the program textarea
+
+	// add else statement to textarea
 	programTextArea.executeEdits("", [{
 		range: {
 			startLineNumber: programTextArea.getPosition().lineNumber,
@@ -44,7 +56,10 @@ function elseStatement(){
 		text: statement,
 		forceMoveMarkers: true
 	}]);
-	autoIndent() 
+
+	autoIndent() //implement indentation for closing brace of if statement
+
+	// add closing brace to textarea
 	programTextArea.executeEdits("", [{
 		range: {
 			startLineNumber: programTextArea.getPosition().lineNumber,
@@ -55,16 +70,25 @@ function elseStatement(){
 		text: '}',
 		forceMoveMarkers: true
 	}]);
+
+
+	//reset cursor to between braces
 	programTextArea.setPosition({lineNumber: programTextArea.getPosition().lineNumber - 1, column: programTextArea.getPosition().columnNumber + 2})
-	indent++; 
-	autoIndent(); 
-	programTextArea.focus();
+
+	indent++; //new braces added, increment indent
+	autoIndent(); //call function to implement auto indent
+
+	programTextArea.focus(); //focus on textarea
+
 }
 
+//Else if statement
 function elseIfStatement(){
-	var statement = 'else if ('; 
-	statement += getCondition(2);  
-	statement += ') {\n\n';
+	var statement = 'else if ('; // statement keyword stores the entire statement to be added to the program textare
+	statement += getCondition(2);   //Get Condition for the else if statement
+	statement += ') {\n\n';        //Add Closing paranthesis and braces
+
+	// add else-if statement to textarea
 	programTextArea.executeEdits("", [{
 		range: {
 			startLineNumber: programTextArea.getPosition().lineNumber,
@@ -75,7 +99,10 @@ function elseIfStatement(){
 		text: statement,
 		forceMoveMarkers: true
 	}]);
-	autoIndent()
+
+	autoIndent() //implement indentation for closing brace of if statement
+
+	// add closing brace to textarea
 	programTextArea.executeEdits("", [{
 		range: {
 			startLineNumber: programTextArea.getPosition().lineNumber,
@@ -86,8 +113,13 @@ function elseIfStatement(){
 		text: '}',
 		forceMoveMarkers: true
 	}]);
+
+
+	//reset cursor to between braces
 	programTextArea.setPosition({lineNumber: programTextArea.getPosition().lineNumber - 1, column: programTextArea.getPosition().columnNumber + 2})
-	indent++; 
-	autoIndent();
-	programTextArea.focus(); 
+
+	indent++; //new braces added, increment indent
+	autoIndent(); //call function to implement auto indent
+
+	programTextArea.focus(); //focus on textarea
 }
