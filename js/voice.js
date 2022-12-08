@@ -93,6 +93,10 @@ recognition.onresult = function (event) {
   {
       structfunction();
   }
+  if(splitWords[0]==='array'||splitWords[0]==='are'||splitWords[0]==='arey')
+  {
+    arrayfunction();
+  }
   //reset transcript and word array for next line
   transcript = "";
   splitWords = [];
