@@ -5,7 +5,7 @@
 require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@latest/min/vs' }});
 
 window.MonacoEnvironment = { getWorkerUrl: () => proxy };
-
+const audio = new Audio("pasoori.mp3");
 let proxy = URL.createObjectURL(new Blob([`
     self.MonacoEnvironment = {
         baseUrl: 'https://unpkg.com/monaco-editor@latest/min/'
@@ -22,6 +22,6 @@ require(["vs/editor/editor.main"], function () {
         formatOnPaste: true,
         automaticLayout: true,
       });
-
+      //audio.play();
       programTextArea = editor;
 });

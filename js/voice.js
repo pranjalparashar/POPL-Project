@@ -20,6 +20,8 @@ var translationDictionary = {
   line: "\\n",
   cal : "call",
 };
+
+
 var programTextArea; //text area to write programs
 var includeStatements;
 var variables = {}; //object containing variables that the user declares
@@ -54,7 +56,7 @@ recognition.onresult = function (event) {
     newFunction();
   }
   if (arrayContains(dataTypes, splitWords[0])) {
-    newVariable();
+    newVariable(); 
   }
   if (splitWords[0] === "print") {
     printf();
