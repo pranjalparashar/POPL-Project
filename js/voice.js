@@ -89,7 +89,10 @@ recognition.onresult = function (event) {
   if(splitWords[0]==='call'){
       callFunctions();
   }
-
+  if(splitWords[0] ==='structure')
+  {
+      structfunction();
+  }
   //reset transcript and word array for next line
   transcript = "";
   splitWords = [];
