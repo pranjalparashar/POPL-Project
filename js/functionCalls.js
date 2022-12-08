@@ -18,6 +18,7 @@ function callFunctions() {
     }
 
     functionStatement += ')';
+    functionStatement += ';';
     // console.log(functionStatement);
        
     // add function to program textarea
